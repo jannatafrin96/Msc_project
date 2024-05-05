@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brain Tumor Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Brain Tumor Classification</h1>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
+      <button type="submit">Classify Tumor</button>
+    </form>
+    {% if prediction %}
+      <h2>Classification for {{ filename }}: {{ prediction }}</h2>
+    {% elif filename %}
+      <h2>No prediction available for {{ filename }}</h2>
+    {% endif %}
+  </body>
+</html>
+
